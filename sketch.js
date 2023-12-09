@@ -15,6 +15,7 @@
 let song
 let fft
 let waves
+let k=0;
 
 function preload(){
   song = loadSound("abstract-future-bass-162604.mp3")
@@ -50,7 +51,16 @@ function draw() {
 
 //Resizing Window Code
 function mousePressed() {
+  if(k=0){
    song.play()
+    k=1
+  }
+
+  if(song.isPlaying()==true){
+    song.pause()
+  } else{
+    song.play()
+  }
   if (mouseX > 0 && mouseX < windowWidth && mouseY > 0 && mouseY < windowHeight) {
     let fs = fullscreen();
     fullscreen(!fs);
