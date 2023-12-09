@@ -24,7 +24,6 @@ function preload(){
 function setup() {
   createCanvas(windowWidth, windowHeight);
   noStroke()
-  song.play()
   fft = new p5.FFT()
   fft.setInput(song)
 }
@@ -51,6 +50,7 @@ function draw() {
 
 //Resizing Window Code
 function mousePressed() {
+   song.play()
   if (mouseX > 0 && mouseX < windowWidth && mouseY > 0 && mouseY < windowHeight) {
     let fs = fullscreen();
     fullscreen(!fs);
